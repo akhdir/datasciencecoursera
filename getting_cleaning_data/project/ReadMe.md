@@ -35,3 +35,4 @@ tidy <- aggregate(MeanSTDOnly[1:66], by=list(MeanSTDOnly$activities, MeanSTDOnly
 colnames(tidy)[1] <- "activity";
 colnames(tidy)[2] <- "subjects";
 write.table(tidy, file= "tidyset.txt",  row.names = FALSE);
+
