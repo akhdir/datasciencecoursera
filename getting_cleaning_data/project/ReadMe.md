@@ -3,7 +3,9 @@
 The script reads all the measurments in traingin and test sets, it reads:
 1. X which contains the features ( measurements )
 
-2. y which refers to the activiy
+
+2 y which refers to the activiy
+
 
 3. subjects which refers to the subjects (30 volunteers)
 
