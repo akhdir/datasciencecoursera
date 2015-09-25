@@ -22,6 +22,7 @@ Cols = sort.int( Cols)
 # extracting Mean & STD Cols only
 MeanSTDOnly = X[, Cols];
 
+# Altering the variables' names
 colsn <- as.vector(features[sort.int(Cols),]$V2);
 colsn <- gsub("^f", "MeanFreq", colsn);
 colsn <- gsub("^t", "MeanTime", colsn);
@@ -41,19 +42,12 @@ MeanSTDOnly["activities"] <- activity_names;
 
 MeanSTDOnly["subjects"] <- subjects$V1;
 
+# mean of all values in the data set grouped by subject and activity.
 tidy <- aggregate(MeanSTDOnly[1:66], by=list(MeanSTDOnly$activities, MeanSTDOnly$subjects), FUN=mean);
 colnames(tidy)[1] <- "activity";
 colnames(tidy)[2] <- "subjects";
 write.table(tidy, file= "tidyset.txt",  row.names = FALSE);
-#X["activities"] = y;
-#X["subjects"] = subjects;
 
-# converting data frame to vector
-# as.vector(t(s))
-
-# repeating vector 
-# rep(1:4, each=561)
-# head(X);
 
 
 
