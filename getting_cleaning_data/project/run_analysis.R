@@ -22,8 +22,17 @@ Cols = sort.int( Cols)
 # extracting Mean & STD Cols only
 MeanSTDOnly = X[, Cols];
 
+colsn <- as.vector(features[sort.int(Cols),]$V2);
+colsn <- gsub("^f", "MeanFreq", colsn);
+colsn <- gsub("^t", "MeanTime", colsn);
+colsn <- gsub("BodyBody", "Body", colsn, fixed = TRUE);
+colsn <- gsub("mean", "Mean", colsn, fixed = TRUE);
+colsn <- gsub("std", "StdDev", colsn, fixed = TRUE);
+colsn <- gsub('-', "", colsn, fixed = TRUE);
+colsn <- gsub('()', "", colsn, fixed = TRUE);
+
 # tmp = replace(as.vector(y$V1), as.vector(activities$V2), as.vector(activities$V1) );
-colnames(MeanSTDOnly) <- as.vector(features[sort.int(Cols),]$V2);
+colnames(MeanSTDOnly) <- colsn;
 
 # assigning activities names
 library(plyr);
