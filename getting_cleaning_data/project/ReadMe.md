@@ -9,6 +9,10 @@ The script reads all the measurments in traingin and test sets, it reads:
 
 3. subjects which refers to the subjects (30 volunteers)
 
+1. terer
+2. sdfdsfs
+3. 
+
 
 The code merges the test sets and the training sets respectively
 
