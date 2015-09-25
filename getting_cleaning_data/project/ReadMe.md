@@ -1,6 +1,6 @@
 # How the Script Works
 
-The script reads all the measurements in traingin and test sets, it reads:
+The script reads all the measurements in training and test sets, it reads:
 
 1. X which contains the features ( measurements )
 2. y which refers to the activiy
