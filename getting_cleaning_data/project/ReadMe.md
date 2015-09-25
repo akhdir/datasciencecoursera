@@ -15,36 +15,36 @@ meanCols = grep("-mean()", as.vector(features$V2), ignore.case = FALSE, fixed = 
 stdCols = grep("-std()", as.vector(features$V2), ignore.case = FALSE, fixed = TRUE );
 ```
 Merging the vectors and sorting them:
-```
+```R
 Cols = c(stdCols, meanCols);
 Cols = sort.int( Cols)
 ```
 Extracting Mean & STD features fom the original dataset
-```
+```R
 MeanSTDOnly = X[, Cols];
 ```
 
 Assigning activities names, and adding it to the dataset:
 
-```
+```R
 library(plyr);
 activity_names = mapvalues( as.vector(y$V1), as.vector(activities$V1), as.vector(activities$V2));
 MeanSTDOnly["activities"] <- activity_names;
 ```
 Adding subjects column
-```
+```R
 MeanSTDOnly["subjects"] <- subjects$V1;
 ```
 
 Aggregate using the function mean:
-```
+```R
 tidy <- aggregate(MeanSTDOnly[1:66], by=list(MeanSTDOnly$activities, MeanSTDOnly$subjects), FUN=mean);
 colnames(tidy)[1] <- "activity";
 colnames(tidy)[2] <- "subjects";
 ```
 
 And finally writing the data
-```
+```R
 write.table(tidy, file= "tidyset.txt",  row.names = FALSE);
 ```
 
